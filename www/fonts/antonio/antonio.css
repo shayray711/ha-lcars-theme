@@ -1,0 +1,8 @@
+/* Antonio (SIL Open Font License 1.1, see OFL.txt), served locally by Home Assistant. */
+@font-face {
+  font-family: "Antonio";
+  src: url("/local/fonts/antonio/Antonio-Variable.ttf") format("truetype");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,418 @@
+# LCARS-inspired themes for Home Assistant.
+# Written from scratch. Inspired by (not copied from) the LCARS look of Star Trek: Picard / TNG
+# and by the Pi-hole LCARS community themes. No logos or copyrighted artwork are used.
+#
+# Font: Antonio (SIL Open Font License 1.1), self-hosted at /local/fonts/antonio/antonio.css.
+# Shapes (all-caps text, pill buttons, elbows, side bars) need card-mod. Three themes: Picard LCARS, TNG LCARS, LCARS Console.
+
+
+Picard LCARS:
+  # --- Palette ----------------------------------------------------------
+  lcars-black: "#000000"
+  lcars-panel: "#05070c"
+  lcars-blue: "#5b8fd8"
+  lcars-ice: "#a8cdf2"
+  lcars-gold: "#e8b04e"
+  lcars-amber: "#c98a2b"
+  lcars-red: "#c94a3b"
+  lcars-text: "#e6eef8"
+  lcars-dim: "#7c8aa0"
+  # Panel colour families (used by the dashboard's LCARS panels)
+  lcars-network: "#5b8fd8"
+  lcars-network-2: "#a8cdf2"
+  lcars-pihole: "#c94a3b"
+  lcars-pihole-2: "#e58a6f"
+  lcars-battery: "#e8b04e"
+  lcars-battery-2: "#f3d38c"
+  lcars-alert: "#c94a3b"
+  lcars-readout-size: "3.4em"
+
+  # --- Page -------------------------------------------------------------
+  lovelace-background: "#000000"
+  primary-background-color: "#000000"
+  secondary-background-color: "#05070c"
+  app-header-background-color: "#000000"
+  app-header-text-color: "#e8b04e"
+  app-header-edit-background-color: "#c98a2b"
+
+  # --- Text and fonts ---------------------------------------------------
+  primary-text-color: "#e6eef8"
+  secondary-text-color: "#a8cdf2"
+  disabled-text-color: "#4f5a6b"
+  text-primary-color: "#000000"
+  primary-font-family: "Antonio, 'Arial Narrow', sans-serif"
+  paper-font-common-base_-_font-family: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-body: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-heading: "Antonio, 'Arial Narrow', sans-serif"
+
+  # --- Accent colours ---------------------------------------------------
+  primary-color: "#e8b04e"
+  rgb-primary-color: "232, 176, 78"
+  accent-color: "#5b8fd8"
+  rgb-accent-color: "91, 143, 216"
+  state-icon-color: "#a8cdf2"
+  state-light-on-color: "#e8b04e"
+  state-climate-heat-color: "#c94a3b"
+  state-climate-auto-color: "#5b8fd8"
+  error-color: "#c94a3b"
+  warning-color: "#e8b04e"
+  success-color: "#7fb3e8"
+  info-color: "#5b8fd8"
+  divider-color: "#1b2433"
+
+  # --- Cards ------------------------------------------------------------
+  card-background-color: "#000000"
+  ha-card-background: "#000000"
+  ha-card-border-radius: "28px"
+  ha-card-border-width: "0px"
+  ha-card-box-shadow: "none"
+  ha-card-header-font-family: "Antonio, 'Arial Narrow', sans-serif"
+  ha-badge-border-radius: "999px"
+
+  # --- Sidebar and dialogs ----------------------------------------------
+  sidebar-background-color: "#000000"
+  sidebar-text-color: "#a8cdf2"
+  sidebar-icon-color: "#5b8fd8"
+  sidebar-selected-background-color: "#e8b04e"
+  sidebar-selected-text-color: "#e8b04e"
+  sidebar-selected-icon-color: "#e8b04e"
+  dialog-background-color: "#05070c"
+  mdc-dialog-scrim-color: "rgba(0, 0, 0, 0.75)"
+  input-fill-color: "#0b111b"
+  input-ink-color: "#e6eef8"
+  switch-checked-color: "#e8b04e"
+  switch-checked-track-color: "#c98a2b"
+
+
+  # --- LCARS shapes (needs card-mod) -----------------------------------
+  # Every card takes its colour from --lcars-accent. A dashboard can give a panel its
+  # own colour family with: card_mod: { style: "ha-card { --lcars-accent: var(--lcars-network); }" }
+  card-mod-theme: Picard LCARS
+  card-mod-card: &lcars_card_mod |
+    ha-card {
+      --lcars-bar: var(--lcars-accent, var(--primary-color));
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--lcars-black, #000);
+      border-left: 14px solid var(--lcars-bar);
+      border-top: 6px solid var(--lcars-bar);
+      border-radius: 34px 6px 6px 6px;
+      overflow: hidden;
+    }
+    /* Pill-shaped tiles and buttons with a coloured end cap */
+    :host(hui-tile-card) ha-card,
+    :host(hui-button-card) ha-card {
+      border-top: 0;
+      border-left: 22px solid var(--lcars-bar);
+      border-radius: 999px;
+    }
+    /* Headings: no panel, LCARS-style coloured caps */
+    :host(hui-heading-card) ha-card {
+      border: 0;
+      border-radius: 0;
+      color: var(--lcars-bar);
+      letter-spacing: 0.12em;
+      font-size: 1.15em;
+    }
+    /* Keep running text readable */
+    :host(hui-markdown-card) ha-card {
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+TNG LCARS:
+  # --- Palette ----------------------------------------------------------
+  lcars-black: "#000000"
+  lcars-panel: "#06050a"
+  lcars-orange: "#ff9c3c"
+  lcars-peach: "#ffc690"
+  lcars-lavender: "#c49ad8"
+  lcars-lightblue: "#9cc8ff"
+  lcars-text: "#ffe6cc"
+  lcars-dim: "#8e7f9c"
+  # Panel colour families (used by the dashboard's LCARS panels)
+  lcars-network: "#9cc8ff"
+  lcars-network-2: "#c9e0ff"
+  lcars-pihole: "#c49ad8"
+  lcars-pihole-2: "#e2c4ee"
+  lcars-battery: "#ff9c3c"
+  lcars-battery-2: "#ffc690"
+  lcars-alert: "#e3655b"
+  lcars-readout-size: "3.4em"
+
+  # --- Page -------------------------------------------------------------
+  lovelace-background: "#000000"
+  primary-background-color: "#000000"
+  secondary-background-color: "#06050a"
+  app-header-background-color: "#000000"
+  app-header-text-color: "#ff9c3c"
+  app-header-edit-background-color: "#c49ad8"
+
+  # --- Text and fonts ---------------------------------------------------
+  primary-text-color: "#ffe6cc"
+  secondary-text-color: "#ffc690"
+  disabled-text-color: "#5e5468"
+  text-primary-color: "#000000"
+  primary-font-family: "Antonio, 'Arial Narrow', sans-serif"
+  paper-font-common-base_-_font-family: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-body: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-heading: "Antonio, 'Arial Narrow', sans-serif"
+
+  # --- Accent colours ---------------------------------------------------
+  primary-color: "#ff9c3c"
+  rgb-primary-color: "255, 156, 60"
+  accent-color: "#c49ad8"
+  rgb-accent-color: "196, 154, 216"
+  state-icon-color: "#ffc690"
+  state-light-on-color: "#ff9c3c"
+  state-climate-heat-color: "#ff9c3c"
+  state-climate-auto-color: "#9cc8ff"
+  error-color: "#e3655b"
+  warning-color: "#ffc690"
+  success-color: "#9cc8ff"
+  info-color: "#c49ad8"
+  divider-color: "#241d2c"
+
+  # --- Cards ------------------------------------------------------------
+  card-background-color: "#000000"
+  ha-card-background: "#000000"
+  ha-card-border-radius: "28px"
+  ha-card-border-width: "0px"
+  ha-card-box-shadow: "none"
+  ha-card-header-font-family: "Antonio, 'Arial Narrow', sans-serif"
+  ha-badge-border-radius: "999px"
+
+  # --- Sidebar and dialogs ----------------------------------------------
+  sidebar-background-color: "#000000"
+  sidebar-text-color: "#ffc690"
+  sidebar-icon-color: "#c49ad8"
+  sidebar-selected-background-color: "#ff9c3c"
+  sidebar-selected-text-color: "#ff9c3c"
+  sidebar-selected-icon-color: "#ff9c3c"
+  dialog-background-color: "#06050a"
+  mdc-dialog-scrim-color: "rgba(0, 0, 0, 0.75)"
+  input-fill-color: "#120e18"
+  input-ink-color: "#ffe6cc"
+  switch-checked-color: "#ff9c3c"
+  switch-checked-track-color: "#c49ad8"
+
+  # --- LCARS shapes (same styling as Picard LCARS) ---------------------
+  card-mod-theme: TNG LCARS
+  card-mod-card: *lcars_card_mod
+
+LCARS Console:
+  # Pi-hole-style LCARS console, written from scratch. Needs card-mod.
+  lcars-orange: "#5b8df0"
+  lcars-peach: "#f5c9a0"
+  lcars-lavender: "#ef9a7a"
+  lcars-lightblue: "#9cc8ff"
+  lcars-salmon: "#e3655b"
+  lcars-tile-cyan: "#00b8e6"
+  lcars-tile-red: "#e0503c"
+  lcars-tile-amber: "#f0a020"
+  lcars-tile-green: "#10b060"
+  lcars-tile-text: "#000000"
+  lcars-accent: "#5b8df0"
+  lcars-strip-display: "block"
+  lcars-banner-bg: "linear-gradient(90deg, #5b8df0 0 55%, #f5c9a0 55% 70%, #ef9a7a 70% 85%, #e06a77 85%) top / 100% 18px no-repeat, #000"
+  lcars-banner-size: "100% 18px, 100% 100%"
+  lcars-banner-left: "40px solid #5b8df0"
+  lcars-banner-radius: "90px 8px 8px 8px"
+  lcars-banner-bottom: "6px solid #ef9a7a"
+  lcars-banner-pad: "30px 14px 8px"
+  lcars-banner-color: "#e8eef6"
+  lcars-banner-shadow: "none"
+  lcars-banner-time: "#cfe4fb"
+  lcars-banner-greet: "#f5c9a0"
+  lcars-banner-date: "#ef9a7a"
+  lcars-banner-caps: "uppercase"
+  lcars-banner-anim: "none"
+  lcars-banner-track: "0.12em"
+
+  lovelace-background: "#000000"
+  primary-background-color: "#000000"
+  secondary-background-color: "#06050a"
+  app-header-background-color: "#000000"
+  primary-text-color: "#e8eef6"
+  secondary-text-color: "#f5c9a0"
+  disabled-text-color: "#5e5468"
+  text-primary-color: "#000000"
+  primary-font-family: "Antonio, 'Arial Narrow', sans-serif"
+  paper-font-common-base_-_font-family: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-body: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-heading: "Antonio, 'Arial Narrow', sans-serif"
+  primary-color: "#5b8df0"
+  accent-color: "#ef9a7a"
+  state-icon-color: "#f5c9a0"
+  state-light-on-color: "#5b8df0"
+  state-climate-heat-color: "#e3655b"
+  card-background-color: "#000000"
+  ha-card-background: "#000000"
+  ha-card-border-radius: "34px"
+  ha-card-border-width: "0px"
+  ha-card-box-shadow: "none"
+  divider-color: "#241d2c"
+  sidebar-background-color: "#000000"
+  sidebar-text-color: "#cfe4fb"
+  sidebar-icon-color: "#5b8df0"
+  sidebar-selected-background-color: "rgba(91, 141, 240, 0.25)"
+  sidebar-selected-text-color: "#5b8df0"
+  sidebar-selected-icon-color: "#5b8df0"
+  dialog-background-color: "#06050a"
+  input-fill-color: "#16181c"
+  ha-color-form-background: "#16181c"
+  ha-color-form-background-hover: "#1d2026"
+  ha-color-form-background-disabled: "#0e0f12"
+  ha-color-text-secondary: "#9fb4cc"
+  ha-color-text-primary: "#e8eef6"
+  input-ink-color: "#e8eef6"
+  input-label-ink-color: "#9fb4cc"
+  input-idle-line-color: "#5b8df0"
+  input-disabled-ink-color: "#566170"
+  mdc-text-field-fill-color: "#16181c"
+  mdc-text-field-ink-color: "#e8eef6"
+  mdc-text-field-label-ink-color: "#9fb4cc"
+  mdc-text-field-idle-line-color: "#5b8df0"
+  mdc-select-fill-color: "#16181c"
+  mdc-select-ink-color: "#e8eef6"
+  mdc-theme-surface: "#111214"
+  mdc-theme-on-surface: "#e8eef6"
+  mdc-theme-text-primary-on-background: "#e8eef6"
+  assist-chat-user-bubble-color: "#5b8df0"
+  assist-chat-hass-bubble-color: "#1b1e24"
+
+  card-mod-theme: LCARS Console
+  card-mod-root: |
+    {% if user == 'Tablet' and is_state('schedule.tablet_night_mode', 'on') %}
+    :host { filter: grayscale(1) sepia(1) saturate(6) hue-rotate(-50deg) brightness(0.45) contrast(1.1); }
+    {% endif %}
+    .toolbar, app-toolbar, .header {
+      background: #000 !important;
+      border-bottom: 3px solid #5b8df0; border-image: linear-gradient(90deg, #5b8df0 0 55%, #f5c9a0 55% 70%, #ef9a7a 70% 85%, #e06a77 85%) 1;
+      border-radius: 0 0 0 0;
+      box-shadow: none;
+    }
+    sl-tab, ha-tab, paper-tab { text-transform: uppercase; font-family: Antonio, sans-serif; color: #f5c9a0; }
+  card-mod-card: |
+    ha-card {
+      background: #000;
+      border-left: 4px solid var(--lcars-accent, #5b8df0);
+      border-top: 3px solid var(--lcars-accent, #5b8df0);
+      border-radius: 20px 6px 6px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      overflow: hidden;
+    }
+    :host(hui-markdown-card) ha-card { text-transform: none; letter-spacing: normal; }
+    :host(hui-heading-card) ha-card { border: 0; border-left: 36px solid #5b8df0; border-top: 5px solid #5b8df0; border-radius: 26px 0 0 0; background: transparent; color: #f5c9a0; letter-spacing: 0.14em; padding: 0 0 0 6px; margin-bottom: 4px; }
+
+Star Trek LCARS:
+  # Pi-hole-style LCARS console, written from scratch. Needs card-mod.
+  lcars-orange: "#ff9c3c"
+  lcars-peach: "#ffc690"
+  lcars-lavender: "#c49ad8"
+  lcars-lightblue: "#9cc8ff"
+  lcars-salmon: "#e3655b"
+  lcars-tile-cyan: "#9cc8ff"
+  lcars-tile-red: "#e3655b"
+  lcars-tile-amber: "#ff9c3c"
+  lcars-tile-green: "#c49ad8"
+  lcars-tile-text: "#000000"
+  lcars-accent: "#ff9c3c"
+  lcars-strip-display: "block"
+  lcars-banner-bg: "linear-gradient(90deg, #ff9c3c 0 55%, #ffc690 55% 70%, #c49ad8 70% 85%, #9cc8ff 85%) top / 100% 18px no-repeat, #000"
+  lcars-banner-size: "100% 18px, 100% 100%"
+  lcars-banner-left: "56px solid #ff9c3c"
+  lcars-banner-radius: "120px 8px 8px 8px"
+  lcars-banner-bottom: "6px solid #c49ad8"
+  lcars-banner-pad: "30px 14px 8px"
+  lcars-banner-color: "#ffe6cc"
+  lcars-banner-shadow: "none"
+  lcars-banner-time: "#ffe6cc"
+  lcars-banner-greet: "#ffc690"
+  lcars-banner-date: "#c49ad8"
+  lcars-banner-caps: "uppercase"
+  lcars-banner-anim: "none"
+  lcars-banner-track: "0.12em"
+
+  lovelace-background: "#000000"
+  primary-background-color: "#000000"
+  secondary-background-color: "#06050a"
+  app-header-background-color: "#000000"
+  primary-text-color: "#ffe6cc"
+  secondary-text-color: "#ffc690"
+  disabled-text-color: "#5e5468"
+  text-primary-color: "#000000"
+  primary-font-family: "Antonio, 'Arial Narrow', sans-serif"
+  paper-font-common-base_-_font-family: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-body: "Antonio, 'Arial Narrow', sans-serif"
+  ha-font-family-heading: "Antonio, 'Arial Narrow', sans-serif"
+  primary-color: "#ff9c3c"
+  accent-color: "#c49ad8"
+  state-icon-color: "#ffc690"
+  state-light-on-color: "#ff9c3c"
+  state-climate-heat-color: "#e3655b"
+  card-background-color: "#000000"
+  ha-card-background: "#000000"
+  ha-card-border-radius: "34px"
+  ha-card-border-width: "0px"
+  ha-card-box-shadow: "none"
+  divider-color: "#241d2c"
+  sidebar-background-color: "#000000"
+  sidebar-text-color: "#ffe6cc"
+  sidebar-icon-color: "#ff9c3c"
+  sidebar-selected-background-color: "rgba(91, 141, 240, 0.25)"
+  sidebar-selected-text-color: "#ff9c3c"
+  sidebar-selected-icon-color: "#ff9c3c"
+  dialog-background-color: "#06050a"
+  input-fill-color: "#16181c"
+  ha-color-form-background: "#16181c"
+  ha-color-form-background-hover: "#1d2026"
+  ha-color-form-background-disabled: "#0e0f12"
+  ha-color-text-secondary: "#ffc690"
+  ha-color-text-primary: "#ffe6cc"
+  input-ink-color: "#ffe6cc"
+  input-label-ink-color: "#ffc690"
+  input-idle-line-color: "#ff9c3c"
+  input-disabled-ink-color: "#566170"
+  mdc-text-field-fill-color: "#16181c"
+  mdc-text-field-ink-color: "#ffe6cc"
+  mdc-text-field-label-ink-color: "#ffc690"
+  mdc-text-field-idle-line-color: "#ff9c3c"
+  mdc-select-fill-color: "#16181c"
+  mdc-select-ink-color: "#ffe6cc"
+  mdc-theme-surface: "#111214"
+  mdc-theme-on-surface: "#ffe6cc"
+  mdc-theme-text-primary-on-background: "#ffe6cc"
+  assist-chat-user-bubble-color: "#ff9c3c"
+  assist-chat-hass-bubble-color: "#1b1e24"
+
+  card-mod-theme: Star Trek LCARS
+  card-mod-root: |
+    {% if user == 'Tablet' and is_state('schedule.tablet_night_mode', 'on') %}
+    :host { filter: grayscale(1) sepia(1) saturate(6) hue-rotate(-50deg) brightness(0.45) contrast(1.1); }
+    {% endif %}
+    .toolbar, app-toolbar, .header {
+      background: #000 !important;
+      border-bottom: 3px solid #ff9c3c; border-image: linear-gradient(90deg, #ff9c3c 0 55%, #ffc690 55% 70%, #c49ad8 70% 85%, #9cc8ff 85%) 1;
+      border-radius: 0 0 0 0;
+      box-shadow: none;
+    }
+    sl-tab, ha-tab, paper-tab { text-transform: uppercase; font-family: Antonio, sans-serif; color: #ffc690; }
+  card-mod-card: |
+    ha-card {
+      background: #000;
+      border-left: 14px solid var(--lcars-accent, #ff9c3c);
+      border-top: 6px solid var(--lcars-accent, #ff9c3c);
+      border-radius: 42px 6px 6px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      overflow: hidden;
+    }
+    :host(hui-markdown-card) ha-card { text-transform: none; letter-spacing: normal; }
+    :host(hui-heading-card) ha-card { border: 0; border-left: 44px solid #ff9c3c; border-top: 8px solid #ff9c3c; border-radius: 34px 0 0 0; background: transparent; color: #ffc690; letter-spacing: 0.14em; padding: 0 0 0 6px; margin-bottom: 4px; }
+    :host(hui-tile-card) ha-card, :host(hui-button-card) ha-card, :host(hui-entity-button-card) ha-card {
+      border-top: 0;
+      border-left: 22px solid var(--lcars-accent, #ff9c3c);
+      border-radius: 999px;
+    }
