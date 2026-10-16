@@ -9,6 +9,18 @@ Four dark, Star Trek LCARS-style themes for Home Assistant dashboards, including
 | **LCARS Console** | Black background in the Pi-hole LCARS colours: blue, peach, salmon and pink, with cyan, red, amber and green tiles |
 | **Star Trek LCARS** | The Console layout in classic TNG colours (orange, peach, lavender, light blue) with thicker elbows and pill-shaped tiles and buttons |
 
+![Star Trek LCARS on a Home Assistant dashboard](images/star-trek-lcars.png)
+
+*Star Trek LCARS: the same dashboard in orange, peach and lavender.*
+
+
+![LCARS Console on a Home Assistant dashboard](images/lcars-console-home.png)
+
+*LCARS Console: the Home dashboard with coloured stat tiles, elbow-style panel headings and the readout strip.*
+
+![LCARS Console on a floor page](images/lcars-console-floor.png)
+
+
 All themes have:
 
 - The condensed **Antonio** font, self-hosted on your Home Assistant (nothing loads from Google).
